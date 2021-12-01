@@ -8,7 +8,7 @@ const HomeBody = () => {
       <div className="login-page container">
         <div className="row align-items-center" style={{ height: "100vh" }}>
           <div className="col-md-6 shadow p-5">
-            <h4 style={{ color: "red" }}>JTI Trade Program</h4>
+            <h4 style={{ color: "red" }}>Bandhan EAS</h4>
             <p className="font-weight-bold">FOR</p>
             <img className="img-fluid" src={JTI} alt="" />
           </div>
