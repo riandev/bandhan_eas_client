@@ -46,7 +46,7 @@ const FinalUpdateQc = ({ ansData, qcBy }) => {
     data.qcDate = new Date().toLocaleDateString();
     data.qcTime = new Date().toLocaleTimeString();
     console.log(data);
-    fetch(`http://localhost:6010/finalUpdate/${id}`, {
+    fetch(`http://67.21.32.75:6010/finalUpdate/${id}`, {
       method: "PATCH",
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify(data),
