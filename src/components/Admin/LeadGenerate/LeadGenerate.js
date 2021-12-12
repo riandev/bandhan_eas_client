@@ -49,6 +49,7 @@ const LeadGenerate = () => {
 
   let headers = [
     { label: "diid", key: "diid" },
+    { label: "outlet_code", key: "outlet_code" },
     { label: "Consumer_No", key: "Consumer_No" },
   ];
 
