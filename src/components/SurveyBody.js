@@ -98,7 +98,7 @@ const SurveyBody = () => {
           Search
         </button>
       </div>
-      <div
+      {/* <div
         style={{
           display: consumer === null ? "none" : "block",
         }}
@@ -117,16 +117,16 @@ const SurveyBody = () => {
             <option value="no">না</option>
           </Form.Control>
         </Form.Group>
-      </div>
+      </div> */}
       <div
         style={{
-          display: q1 === "yes" || q1 === "no" ? "block" : "none",
+          display: consumer === null ? "none" : "block",
         }}
         className="mt-2"
       >
         <h6>
-          ২. আমি একটি রিসার্চ কোম্পানি থেকে ফোন করেছি । আমি কি আপনার সাথে একটু
-          কথা বলতে পারি?
+          ১.আসসালামুআলাইকুম, আমি একটি রিসার্চ কোম্পানি থেকে ফোন করেছি । আমি কি
+          আপনার সাথে একটু কথা বলতে পারি?
         </h6>
         <p className="text-secondary">
           (যদি উত্তর হ্যাঁ আসে তবে কথা বলা চালিয়ে যাবেন, নতুনবা কথা শেষ করে
@@ -155,7 +155,7 @@ const SurveyBody = () => {
         <h6>
           ৩. স্যার, আমি <b>{consumer?.outlet_name}</b> , এর থেকে আপনার মোবাইল
           নম্বরটি পেয়েছি , ( তার দোকানের নাম : <b>{consumer?.outlet_name}</b> ,
-          ঠিকানা : <b>{consumer?.outlet_address}</b>)
+          ঠিকানা : <b>{consumer?.Territory}</b>)
         </h6>
         <p className="text-secondary">
           যদি পরিচয় শুনে সে চিনতে পারে, তাহলে কথা চালিয়ে যাবেন
@@ -169,7 +169,10 @@ const SurveyBody = () => {
         </Form.Group>
       </div>
       <div
-        style={{ display: q3 === "remembered" ? "block" : "none" }}
+        style={{
+          display:
+            q3 === "remembered" || q3 === "notRemembered" ? "block" : "none",
+        }}
         className="mt-2"
       >
         <h6>৪. স্যার, আপনার বয়স কতো, সেটি কি জানতে পারি?</h6>
@@ -255,8 +258,8 @@ const SurveyBody = () => {
       >
         <h6>
           ৭. সম্প্রতি <b>{consumer?.outlet_name}</b> দোকানদার ভাই কি আপনাকে
-          জানিয়েছেন, যে নেভি অপশন সিগারেট নিশ্চিত করছে সর্বোচ্চ কোয়ালিটি এবং
-          বাড়তি তৃপ্তি ?
+          জানিয়েছেন, যে নেভি অপশন সিগারেট নিশ্চিত করছে " ৭ টাকায় বেরি ক্যাপসুলে
+          স্মার্ট অপশন?
         </h6>
         <Form.Group onChange={q7value} as={Row}>
           <Form.Control as="select" className="w-50 ml-3">
@@ -286,8 +289,7 @@ const SurveyBody = () => {
       >
         <h6>
           ৭.১ সম্প্রতি <b>{consumer?.outlet_name}</b> দোকানদার ভাই কি আপনাকে
-          জানিয়েছেন, যে শেখ এলইপি সিগারেট নিশ্চিত করছে সর্বোচ্চ কোয়ালিটি এবং
-          বাড়তি তৃপ্তি ?
+          জানিয়েছেন, যে “প্রথমবার স্টিক ডিজাইনে স্বপ্নের তিন শহর নিয়ে এলো শেখ ?
         </h6>
         <Form.Group onChange={q7dot1value} as={Row}>
           <Form.Control as="select" className="w-50 ml-3">
