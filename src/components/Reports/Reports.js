@@ -7,21 +7,21 @@ const Reports = () => {
   const [dates, setDates] = useState([]);
   const [downloaded, setDownloaded] = useState([]);
   useEffect(() => {
-    fetch("http://67.21.32.75:6010/reports")
+    fetch("http://192.168.10.14:6010/reports")
       .then((res) => res.json())
       .then((data) => {
         setReport(data);
       });
   }, []);
   useEffect(() => {
-    fetch("http://67.21.32.75:6010/reportDates")
+    fetch("http://192.168.10.14:6010/reportDates")
       .then((res) => res.json())
       .then((data) => setDates(data));
   }, []);
 
   function handlePrepare(pdate) {
     console.log(pdate);
-    fetch("http://67.21.32.75:6010/prepareByDate?date=" + pdate)
+    fetch("http://192.168.10.14:6010/prepareByDate?date=" + pdate)
       .then((res) => res.json())
       .then((data) => setDownloaded(data));
   }
@@ -31,27 +31,15 @@ const Reports = () => {
   }
 
   let headers = [
-    { label: "id", key: "id" },
     { label: "diid", key: "diid" },
-    { label: "Mail", key: "Mail" },
-    { label: "Data_Status", key: "Data_Status" },
-    { label: "Operator_name", key: "Operator_name" },
-    { label: "data_date", key: "data_date" },
-    { label: "Months", key: "Months" },
-    { label: "SL", key: "SL" },
-    { label: "Page_no", key: "Page_no" },
-    { label: "Rute_Name", key: "Rute_Name" },
-    { label: "ba_id", key: "ba_id" },
-    { label: "r_name", key: "r_name" },
-    { label: "Consumer_No", key: "Consumer_No" },
-    { label: "age", key: "age" },
-    { label: "profession", key: "profession" },
-    { label: "date_recorded", key: "date_recorded" },
-    { label: "outlet_id", key: "outlet_id" },
-    { label: "outlet_name", key: "outlet_name" },
-    { label: "Presented_Address", key: "Presented_Address" },
-    { label: "Which_brand_do_you_smoke", key: "Which_brand_do_you_smoke" },
+    { label: "Date", key: "Date" },
+    { label: "Region", key: "Region" },
+    { label: "Area", key: "Area" },
     { label: "Territory", key: "Territory" },
+    { label: "outlet_code", key: "outlet_code" },
+    { label: "outlet_name", key: "outlet_name" },
+    { label: "Retailer_Phone", key: "Retailer_Phone" },
+    { label: "Consumer_No", key: "Consumer_No" },
     { label: "for_d", key: "for_d" },
     { label: "agentID", key: "agentID" },
     { label: "qcBy", key: "qcChecked" },
@@ -67,6 +55,7 @@ const Reports = () => {
     { label: "q5", key: "answer5" },
     { label: "q6", key: "answer6" },
     { label: "q7", key: "answer7" },
+    { label: "q7dot1", key: "answer7dot1" },
     { label: "q8", key: "answer8" },
   ];
   return (
@@ -104,7 +93,7 @@ const Reports = () => {
                     <CSVLink
                       headers={headers}
                       title="Export data to CSV"
-                      filename={`JTI_Trade_Program_${date?.date}.csv`}
+                      filename={`Bandhan_EAS_${date?.date}.csv`}
                       data={downloaded}
                     >
                       `Download_${date?.date}`
@@ -124,7 +113,7 @@ const Reports = () => {
           <CSVLink
             headers={headers}
             title="Export data to CSV"
-            filename={"JTI_Trade_Program.csv"}
+            filename={"Bandhan_EAS.csv"}
             data={report}
           >
             Download

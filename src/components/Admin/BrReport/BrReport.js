@@ -11,22 +11,22 @@ const BrReport = () => {
   const [areaDate, setAreaDate] = useState("");
   const [regionDate, setRegionDate] = useState("");
   const handleBrReport = () => {
-    fetch(`http://67.21.32.75:6010/baReport/${brDate}`)
+    fetch(`http://192.168.10.14:6010/baReport/${brDate}`)
       .then((res) => res.json())
       .then((data) => setStatus(data));
   };
   const handleTerritoryReport = () => {
-    fetch(`http://67.21.32.75:6010/territoryReport/${territoryDate}`)
+    fetch(`http://192.168.10.14:6010/territoryReport/${territoryDate}`)
       .then((res) => res.json())
       .then((data) => setTerritoryStatus(data));
   };
   const handleAreaReport = () => {
-    fetch(`http://67.21.32.75:6010/areaReport/${areaDate}`)
+    fetch(`http://192.168.10.14:6010/areaReport/${areaDate}`)
       .then((res) => res.json())
       .then((data) => setAreaStatus(data));
   };
   const handleRegionReport = () => {
-    fetch(`http://67.21.32.75:6010/regionReport/${regionDate}`)
+    fetch(`http://192.168.10.14:6010/regionReport/${regionDate}`)
       .then((res) => res.json())
       .then((data) => setRegionStatus(data));
   };

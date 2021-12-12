@@ -30,7 +30,7 @@ const LeadGenerate = () => {
   };
 
   const generateInitial = () => {
-    fetch("http://67.21.32.75:6010/initialLead?initDate=" + initialDate)
+    fetch("http://192.168.10.14:6010/initialLead?initDate=" + initialDate)
       .then((res) => res.json())
       .then((data) => {
         console.log(data);
@@ -49,15 +49,11 @@ const LeadGenerate = () => {
 
   let headers = [
     { label: "id", key: "id" },
-    { label: "diid", key: "diid" },
-    { label: "Territory", key: "Territory" },
-    { label: "data_date", key: "data_date" },
-    { label: "r_name", key: "r_name" },
     { label: "Consumer_No", key: "Consumer_No" },
   ];
 
   const updateInitialLeads = () => {
-    fetch("http://67.21.32.75:6010/updateInitialLead", {
+    fetch("http://192.168.10.14:6010/updateInitialLead", {
       method: "PATCH",
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify(initialLeads),
@@ -67,7 +63,7 @@ const LeadGenerate = () => {
   };
 
   const regenerateLeads = () => {
-    fetch("http://67.21.32.75:6010/regenerate?regenDate=" + regenDate)
+    fetch("http://192.168.10.14:6010/regenerate?regenDate=" + regenDate)
       .then((res) => res.json())
       .then((data) => {
         setRegenerate(
@@ -84,7 +80,7 @@ const LeadGenerate = () => {
   };
 
   const regenerateUpdate = () => {
-    fetch("http://67.21.32.75:6010/regenerateUpdate", {
+    fetch("http://192.168.10.14:6010/regenerateUpdate", {
       method: "PATCH",
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify(regenerate),
@@ -101,14 +97,14 @@ const LeadGenerate = () => {
           <Card style={{ width: "22rem" }}>
             <Card.Body>
               <h5 className="mt-3">Generate Initial Leads</h5>
-              <input
+              {/* <input
                 onChange={manageInitialDate}
                 className="form-control"
                 placeholder="yyyy/mm/dd"
                 name="date"
                 type="date"
                 required
-              />
+              /> */}
               <div className="mt-3 d-flex justify-content-between">
                 <button onClick={generateInitial} className="btn btn-primary">
                   Generate
@@ -131,7 +127,7 @@ const LeadGenerate = () => {
                   <CSVLink
                     headers={headers}
                     title="Export data to CSV"
-                    filename="JTI_Trade_InitialLead.csv"
+                    filename="Bandhan_EAS_InitialLead.csv"
                     data={initialLeads}
                   >
                     Download
@@ -150,14 +146,14 @@ const LeadGenerate = () => {
           <Card style={{ width: "28rem" }}>
             <Card.Body>
               <h5 className="mt-3">Regenerate Leads</h5>
-              <input
+              {/* <input
                 onChange={manageRegenDate}
                 className="form-control"
                 placeholder="yyyy/mm/dd"
                 name="date"
                 type="date"
                 required
-              />
+              /> */}
               <div className="mt-3 d-flex justify-content-between">
                 <button onClick={regenerateLeads} className="btn btn-primary">
                   Regenerate
@@ -179,7 +175,7 @@ const LeadGenerate = () => {
                   <CSVLink
                     headers={headers}
                     title="Export data to CSV"
-                    filename="JTI_Trade_regenerateLead.csv"
+                    filename="Bandhan_EAS_regenerateLead.csv"
                     data={regenerate}
                   >
                     Download
